@@ -1,0 +1,15 @@
+on:
+push:
+branches:
+-master
+jobs:
+create-deployment-artifacts:
+name: create deployment artifacts
+runs-on: ubuntu-latest
+steps:
+- uses: action/checkout@v2
+
+-name: Complie CSS and JAvascript
+run:|
+npm install
+npm run prod
