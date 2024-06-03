@@ -1,15 +1,16 @@
 on:
-push:
-branches:
--master
-jobs:
-create-deployment-artifacts:
-name: create deployment artifacts
-runs-on: ubuntu-latest
-steps:
-- uses: action/checkout@v2
+  push:
+    branches:
+      - master
 
--name: Complie CSS and JAvascript
-run:|
-npm install
-npm run prod
+jobs:
+  create-deployment-artifacts:
+    name: create deployment artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Compile CSS and JavaScript
+        run: |
+          npm install
+          npm run prod
